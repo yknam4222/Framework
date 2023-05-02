@@ -1,16 +1,13 @@
 #pragma once
 #include "Include.h"
 
+class GameObject;
 class MainUpdate
 {
 private:
 	HDC m_hdc;
 
-	float StartX, StartY;
-	float EndX, EndY;
-
-	float BulletStartX, BulletStartY;
-	float BulletEndX, BulletEndY;
+	GameObject* m_pPlayer;
 
 public:
 	void Start();
