@@ -1,21 +1,20 @@
 #pragma once
 #include "GameObject.h"
+#include "Enemy.h"
 
-class Player : public GameObject
+class Bullet : public GameObject
 {
 private:
-	GameObject* BulletList[BULLETCOUNT];
+	GameObject* enemy = new Enemy();
 public:
 	virtual void Start()override;
-	virtual void Start(Vector3 _position)override{}
-
+	virtual void Start(Vector3 _position)override;
 	virtual int Update()override;
 	virtual void Render(HDC hdc)override;
 	virtual void Destroy()override;
+
 public:
-	GameObject* CreateBullet();
-public:
-	Player();
-	virtual ~Player();
+	Bullet();
+	virtual ~Bullet();
 };
 
