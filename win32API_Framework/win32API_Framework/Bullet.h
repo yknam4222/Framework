@@ -4,8 +4,6 @@
 
 class Bullet : public GameObject
 {
-private:
-	GameObject* enemy = new Enemy();
 public:
 	virtual void Start()override;
 	virtual void Start(Vector3 _position)override;

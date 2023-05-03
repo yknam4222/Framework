@@ -35,9 +35,7 @@ int Bullet::Update()
 	if (transform.position.x > WIDTH)
 		return 1;
 	
-	if (transform.position.x < enemy->GetPosition().x)
-		return 1;
-
+	
 	return 0;
 }
 
