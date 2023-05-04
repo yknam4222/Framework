@@ -6,6 +6,8 @@ class GameObject
 protected:
 	Transform transform;
 	float Speed;
+
+	string Key;
 public:
 	virtual void Start()PURE;
 	virtual void Start(Vector3 _position)PURE;
@@ -13,11 +15,16 @@ public:
 	virtual void Render(HDC hdc)PURE;
 	virtual void Destroy()PURE;
 public:
-	Transform GetTransform(){ return transform; }
+	string GetKey() { return Key; }
+
+	Transform GetTransform() { return transform; }
 	//void SetTransform(Transform _transform) { transform = _transform; }
 
-	Vector3 GetPosition(){ return transform.position; }
+	Vector3 GetPosition() { return transform.position; }
 	void SetPosition(Vector3 _position) { transform.position = _position; }
+
+	Vector3 GetScale() { return transform.scale; }
+	void SetScale(Vector3 _scale) { transform.scale = _scale; }
 public:
 	GameObject();
 	virtual ~GameObject();

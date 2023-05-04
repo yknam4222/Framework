@@ -14,9 +14,10 @@ void Bullet::Start()
 	transform.rotation =  Vector3(0.0f, 0.0f, 0.0f);
 	transform.scale =  Vector3(30.0f, 30.0f, 0.0f);
 
+		
 	Speed = 15;
 
-	
+	Key = "Bullet";
 }
 
 void Bullet::Start(Vector3 _position)
@@ -26,6 +27,7 @@ void Bullet::Start(Vector3 _position)
 	transform.scale = Vector3(30.0f, 30.0f, 0.0f);
 
 	Speed = 15;
+	Key = "Bullet";
 }
 
 int Bullet::Update()
@@ -41,7 +43,7 @@ int Bullet::Update()
 
 void Bullet::Render(HDC hdc)
 {
-	Rectangle(hdc,
+	Ellipse(hdc,
 		int(transform.position.x - (transform.scale.x * 0.5f)),
 		int(transform.position.y - (transform.scale.y * 0.5f)),
 		int(transform.position.x + (transform.scale.x * 0.5f)),
