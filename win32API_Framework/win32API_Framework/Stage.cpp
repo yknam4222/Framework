@@ -25,6 +25,21 @@ int Stage::Update()
 	if (m_pPlayer)
 		m_pPlayer->Update();
 
+	list<GameObject*>* EnemyList = ObjectManager::GetInstance()->GetObjectList("Enemy");
+	list<GameObject*>* BulletList = ObjectManager::GetInstance()->GetObjectList("Bullet");
+
+	if (EnemyList != nullptr && !EnemyList->empty())
+	{
+		for (list<GameObject*>::iterator iter = EnemyList->begin(); iter != EnemyList->end(); ++iter)
+			(*iter)->Update();
+	}
+
+	if (BulletList != nullptr && !BulletList->empty())
+	{
+		for (list<GameObject*>::iterator iter = BulletList->begin(); iter != BulletList->end(); ++iter)
+			(*iter)->Update();
+	}
+
 	return 0;
 }
 

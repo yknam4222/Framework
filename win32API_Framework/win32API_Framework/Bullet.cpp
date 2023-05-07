@@ -8,7 +8,7 @@ Bullet::~Bullet()
 {
 }
 
-void Bullet::Start()
+GameObject* Bullet::Start()
 {
 	transform.position =  Vector3(0.0f, 0.0f, 0.0f);
 	transform.rotation =  Vector3(0.0f, 0.0f, 0.0f);
@@ -18,6 +18,8 @@ void Bullet::Start()
 	Speed = 15;
 
 	Key = "Bullet";
+
+	return this;
 }
 
 void Bullet::Start(Vector3 _position)
