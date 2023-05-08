@@ -10,7 +10,6 @@ protected:
 	string Key;
 public:
 	virtual GameObject* Start()PURE;
-	virtual void Start(Vector3 _position)PURE;
 	virtual int Update()PURE;
 	virtual void Render(HDC hdc)PURE;
 	virtual void Destroy()PURE;
