@@ -1,5 +1,6 @@
 #include "Logo.h"
 #include "SceneManager.h"
+#include "InputManager.h"
 
 Logo::Logo()
 {
@@ -15,8 +16,11 @@ void Logo::Start()
 
 int Logo::Update()
 {
-    if (GetAsyncKeyState('A'))
+    DWORD dwKey = InputManager::GetInstance()->GetKey();
+
+    if (dwKey & KEYID_RETURN)
     {
+        Sleep(100);
         SceneManager::GetInstance()->SetScene(MENU);
     }
 
