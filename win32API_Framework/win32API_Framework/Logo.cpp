@@ -16,12 +16,12 @@ void Logo::Start()
 
 int Logo::Update()
 {
-    DWORD dwKey = GetSingle(InputManager).GetKey();
+    DWORD dwKey = GetSingle(InputManager)->GetKey();
 
     if (dwKey & KEYID_RETURN)
     {
         Sleep(100);
-        GetSingle(SceneManager).SetScene(MENU);
+        GetSingle(SceneManager)->SetScene(MENU);
     }
 
     return 0;

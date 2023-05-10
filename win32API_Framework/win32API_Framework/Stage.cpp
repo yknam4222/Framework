@@ -18,10 +18,10 @@ void Stage::Start()
 	m_pPlayer = new Player();
 	m_pPlayer->Start();
 
-	GetSingle(ObjectManager).AddObject(
+	GetSingle(ObjectManager)->AddObject(
 		(new Enemy)->Start());
 
-	EnemyList = GetSingle(ObjectManager).GetObjectList("Enemy");
+	EnemyList = GetSingle(ObjectManager)->GetObjectList("Enemy");
 }
 
 int Stage::Update()
@@ -43,7 +43,7 @@ int Stage::Update()
 			(*iter)->Update();
 	}
 	else
-		BulletList = GetSingle(ObjectManager).GetObjectList("Bullet");
+		BulletList = GetSingle(ObjectManager)->GetObjectList("Bullet");
 
 	return 0;
 }
