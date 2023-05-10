@@ -4,17 +4,19 @@
 class GameObject;
 class ObjectManager
 {
-private:
-	static ObjectManager* Instance;
-
 public:
-	static ObjectManager* GetInstance()
-	{
-		if (Instance == nullptr)
-			Instance = new ObjectManager;
-
-		return Instance;
-	}
+	Single(ObjectManager);
+//private:
+//	static ObjectManager* Instance;
+//
+//public:
+//	static ObjectManager* GetInstance()
+//	{
+//		if (Instance == nullptr)
+//			Instance = new ObjectManager;
+//
+//		return Instance;
+//	}
 private:
 	map<string, list<GameObject*>> ObjectList;
 public:

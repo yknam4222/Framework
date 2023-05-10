@@ -16,19 +16,19 @@ void MainUpdate::Start()
 {
 	m_hdc = GetDC(g_hWnd);
 
-	SceneManager::GetInstance()->SetScene(LOGO);
+	GetSingle(SceneManager).SetScene(LOGO);
 }
 
 void MainUpdate::Update()
 {
-	InputManager::GetInstance()->CheckKey();
-	SceneManager::GetInstance()->Update();
+	GetSingle(InputManager).CheckKey();
+	GetSingle(SceneManager).Update();
 }
 
 void MainUpdate::Render()
 {
 	Rectangle(m_hdc, 0, 0, WIDTH, HEIGHT);
-	SceneManager::GetInstance()->Render(m_hdc);
+	GetSingle(SceneManager).Render(m_hdc);
 }
 
 void MainUpdate::Destroy()

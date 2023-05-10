@@ -15,3 +15,17 @@ const unsigned char KEYID_RETURN = 0x00000010;
 const unsigned char KEYID_SPACE = 0x00000020;
 const unsigned char KEYID_ESCAPE = 0x00000040;
 const unsigned char KEYID_CONTROL = 0x00000080;
+
+#define Single(T)								\
+public:												 \
+	static T& GetInstance()					 \
+	{													 \
+		static T instance;						\
+		return instance;						\
+	}													 \
+private:											 \
+	T(const T&) = delete;					  \
+	T& operator = (const T&) = delete;
+
+#define GetSingle(T) (T::GetInstance())
+
