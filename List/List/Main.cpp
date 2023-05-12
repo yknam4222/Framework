@@ -145,7 +145,8 @@ int main(void)
 
 	//remove(3);
 	pop();
-	push(50);
+	//push(50);
+	//push(60);
 
 	// ** 두번째 노드를 nextNode 에 넘겨준다.
 	NODE* nextNode = List->next;
