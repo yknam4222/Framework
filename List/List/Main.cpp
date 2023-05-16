@@ -35,22 +35,30 @@ void push(int value)
 
 void pop()
 {
-	int count = Length;
-
-	NODE* nextNode = List;
-	while (0 < count)
-	{
-		--count;
-
-		nextNode = nextNode->next;
-	}
+	if (Length < 1)
+		return;
 	
-	NODE* tempNode = nextNode->next->next;
+	else if (Length < 2)
+	{
+		delete List->next;
+		List->next = nullptr;
+		End = List;
+	}
+	else
+	{
+		//리스트를 들고옴
+		NODE* nextNode = List;
 
-	delete nextNode->next;
-	nextNode->next = nullptr;
+		while (nextNode->next->next != nullptr)
+		{
+			//다음노드로 이동
+			nextNode = nextNode->next;
+		}
 
-	nextNode->next = tempNode;
+		End = nextNode;
+		delete nextNode->next;
+		nextNode->next = nullptr;
+	}
 
 	--Length;
 }
@@ -142,11 +150,12 @@ int main(void)
 	push(40);
 
 	insert(2, 25);
+	remove(2);
 
-	//remove(3);
 	pop();
-	//push(50);
-	//push(60);
+
+	push(100);
+	push(200);
 
 	// ** 두번째 노드를 nextNode 에 넘겨준다.
 	NODE* nextNode = List->next;
