@@ -3,50 +3,100 @@
 
 using namespace std;
 
-int* Numbers = nullptr;
-int Length = 0;
 
-void push(int n)
+int* Numbers;
+int Size;
+int Capacity;
+
+
+void pop_back()
 {
-	if (Numbers == nullptr)
-	{
-		Numbers = new int;
-		*Numbers = n;
-		++Length;
-		return;
-	}
-	
-	int* Temp = new int[Length + 1];
+    if (Size != 0)
+        --Size;
+}
 
-	for (int i = 0; i < Length; ++i)
-		Temp[i] = Numbers[i];
+void push_back(int _value)
+{
+    if (Size == Capacity)
+    {
+        int Length = int(Capacity * 0.5f);
+        Capacity += Length < 1 ? 1 : Length;
+    }
 
-	Temp[Length] = n;
-	Numbers = Temp;
-	++Length;
+    int* temp = new int[Capacity];
+
+    for (int i = 0; i < Size; ++i)
+        temp[i] = Numbers[i];
+
+    delete Numbers;
+    Numbers = nullptr;
+
+    Numbers = temp;
+
+    Numbers[Size] = _value;
+
+    ++Size;
+}
+
+void insert(int _where, int _value)
+{
+    if (_where > Size)
+        return;
+
+    if (Size == Capacity)
+    {
+        int Length = int(Capacity * 0.5f);
+        Capacity += Length < 1 ? 1 : Length;
+    }
+
+    int* temp = new int[Capacity];
+
+    for (int i = 0; i < _where; ++i)
+        temp[i] = Numbers[i];
+
+    temp[_where] = _value;
+
+    for (int i = Size; i > _where; --i)
+        temp[i] = Numbers[i - 1];
+
+    delete Numbers;
+    Numbers = nullptr;
+
+    Numbers = temp;
+
+    ++Size;
+
 }
 
 int main(void)
 {
-	/*push(10);
-	push(20);
-	push(30);
-	push(40);
-	push(50);*/
+    for (int i = 0; i < 10; ++i)
+    {
+        push_back(i * 10 + 10);
+        cout << "size : " << Size << endl;
+        cout << "capacity : " << Capacity << endl << endl;
+    }
 
-	for (int i = 0; i < Length; ++i)
-	{
-		cout << Numbers[i] << endl;
-	}
+    insert(5, 111);
 
-	vector<int> vecList;
+    for (int i = 0; i < Size; ++i)
+        cout << Numbers[i] << endl;
 
-	for (int i = 0; i < 5; ++i)
-	{
-		vecList.push_back(i * 10 + 10);
-		cout << vecList[i] << endl;
-		cout << vecList.capacity() << endl << endl;
-	}
+    /*vector<int> vec;
 
-	return 0;
+    vec.push_back(1);
+    vec.push_back(2);
+    vec.push_back(3);
+    vec.push_back(4);
+
+    for (int i = 0; i < vec.size(); ++i)
+        cout << vec[i] << endl;
+
+    vec.insert(vec.begin() + 1, 5);
+    cout << endl;
+
+    for (int i = 0; i < vec.size(); ++i)
+        cout << vec[i] << endl;*/
+
+    return 0;
 }
