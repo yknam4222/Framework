@@ -22,7 +22,7 @@ void push_back(int _value)
         int Length = int(Capacity * 0.5f);
         Capacity += Length < 1 ? 1 : Length;
     }
-
+    
     int* temp = new int[Capacity];
 
     for (int i = 0; i < Size; ++i)
@@ -49,7 +49,18 @@ void insert(int _where, int _value)
         Capacity += Length < 1 ? 1 : Length;
     }
 
-    int* temp = new int[Capacity];
+    _where -= 1;
+
+    for (int i = Size; _where <= i; --i)
+    {
+        Numbers[i + 1] = Numbers[i];
+    }
+
+    Numbers[_where] = _value;
+    
+    ++Size;
+
+    /*int* temp = new int[Capacity];
 
     for (int i = 0; i < _where; ++i)
         temp[i] = Numbers[i];
@@ -64,8 +75,20 @@ void insert(int _where, int _value)
 
     Numbers = temp;
 
-    ++Size;
+    ++Size;*/
+}
 
+void erase(int _where)
+{
+    if (_where > Size || _where <= 0)
+        return;
+
+    if (Size != 0)
+        --Size;
+
+    _where -= 1;
+    for (int i = _where; i < Size; ++i)
+        Numbers[i] = Numbers[i + 1];
 }
 
 int main(void)
@@ -74,13 +97,19 @@ int main(void)
     {
         push_back(i * 10 + 10);
         cout << "size : " << Size << endl;
-        cout << "capacity : " << Capacity << endl << endl;
+        cout << "capacity : " << Capacity << endl << endl; 
     }
 
-    insert(5, 111);
+    //insert(5, 111);
+    erase(7);
 
     for (int i = 0; i < Size; ++i)
         cout << Numbers[i] << endl;
+
+    cout << "size : " << Size << endl;
+    cout << "capacity : " << Capacity << endl << endl;
+
+
 
     /*vector<int> vec;
 
