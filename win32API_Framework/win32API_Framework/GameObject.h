@@ -33,7 +33,7 @@ public:
 	Vector3 GetScale() { return transform.scale; }
 	void SetScale(Vector3 _scale) { transform.scale = _scale; }
 public:
-	GameObject();
+	GameObject(); 
 	GameObject(Transform _transform) : transform(_transform), Speed(0.0f) {}
 	virtual ~GameObject();
 };
