@@ -12,7 +12,7 @@ ObjectPool::~ObjectPool()
 GameObject* ObjectPool::GetPoolObject()
 {
 	//GameObject* Obj = PoolList.pop_front();
-	return Obj;
+	//return Obj;
 }
 
 void ObjectPool::RetunObject(GameObject* _Object)

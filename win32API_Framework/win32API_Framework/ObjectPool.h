@@ -9,7 +9,7 @@ public:
 
 private:
 	list<GameObject*> PoolList;
-
+	map<string,list<GameObject*>> testList;
 public:
 	list<GameObject*>* GetList() { return &PoolList; }
 
