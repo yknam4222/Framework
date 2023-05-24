@@ -4,15 +4,18 @@
 class GameObject;
 class Bridge
 {
-private:
+protected:
 	GameObject* Object;
-private:
+public:
 	virtual void Start()PURE;
-	virtual int Update()PURE;
+	virtual void Update(Transform& transform)PURE;
 	virtual void Render(HDC hdc)PURE;
 	virtual void Destroy()PURE;
 
 public:
-	Bridge() : Object(nullptr){}
+	void SetObject(GameObject* _Object){ Object = _Object; }
+
+public:
+	Bridge() : Object(nullptr) {}
 	virtual ~Bridge() {}
 };

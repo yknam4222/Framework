@@ -67,7 +67,6 @@ int Stage::Update()
 	{
 		for (list<GameObject*>::iterator iter = BulletList->begin(); iter != BulletList->end(); ++iter)
 		{
-			//(*iter)->Update();
 			if ((*iter)->Update() == 1 && (*iter)->GetScale().x ==30.0f)
 			{
 				(*iter)->Destroy();
@@ -94,7 +93,9 @@ void Stage::Render(HDC hdc)
 	if (m_pPlayer)
 		m_pPlayer->Render(hdc);
 
-	if (EnemyList != nullptr && !EnemyList->empty())
+	GetSingle(ObjectManager)->Render(hdc);
+
+	/*if (EnemyList != nullptr && !EnemyList->empty())
 	{
 		for (list<GameObject*>::iterator iter = EnemyList->begin(); iter != EnemyList->end(); ++iter)
 			(*iter)->Render(hdc);
@@ -106,7 +107,7 @@ void Stage::Render(HDC hdc)
 			(*iter)->Render(hdc);
 	}
 	else
-		BulletList = GetSingle(ObjectManager)->GetObjectList("Bullet");
+		BulletList = GetSingle(ObjectManager)->GetObjectList("Bullet");*/
 
 }
 

@@ -76,6 +76,15 @@
     <Filter Include="소스 파일\98. Pattern\Bridge">
       <UniqueIdentifier>{8c202b9c-01dd-4075-8559-fc2d18430cb0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\01. GameObject\Bullet\BulletBridge">
+      <UniqueIdentifier>{42f78fd4-1fb5-4391-b23c-59895d25c67d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\01. GameObject\Bullet\BulletBridge\NormalBullet">
+      <UniqueIdentifier>{70eb8c9b-7baf-4307-87a2-7cbfea0e940c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\01. GameObject\Bullet\BulletBridge\GuideBullet">
+      <UniqueIdentifier>{ab91d0e7-177a-462d-9c86-daa47122177d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -153,6 +162,15 @@
     <ClInclude Include="Bridge.h">
       <Filter>소스 파일\98. Pattern\Bridge</Filter>
     </ClInclude>
+    <ClInclude Include="BulletBridge.h">
+      <Filter>소스 파일\01. GameObject\Bullet\BulletBridge</Filter>
+    </ClInclude>
+    <ClInclude Include="NormalBullet.h">
+      <Filter>소스 파일\01. GameObject\Bullet\BulletBridge\NormalBullet</Filter>
+    </ClInclude>
+    <ClInclude Include="GuideBullet.h">
+      <Filter>소스 파일\01. GameObject\Bullet\BulletBridge\GuideBullet</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="win32API_Framework.cpp">
@@ -199,6 +217,12 @@
     </ClCompile>
     <ClCompile Include="ObjectPool.cpp">
       <Filter>소스 파일\98. Pattern\ObjectPool</Filter>
+    </ClCompile>
+    <ClCompile Include="NormalBullet.cpp">
+      <Filter>소스 파일\01. GameObject\Bullet\BulletBridge\NormalBullet</Filter>
+    </ClCompile>
+    <ClCompile Include="GuideBullet.cpp">
+      <Filter>소스 파일\01. GameObject\Bullet\BulletBridge\GuideBullet</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

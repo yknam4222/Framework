@@ -5,7 +5,6 @@ class Player : public GameObject
 {
 public:
 	virtual GameObject* Start()override;
-
 	virtual int Update()override;
 	virtual void Render(HDC hdc)override;
 	virtual void Destroy()override;
@@ -16,6 +15,7 @@ public:
 		return new Player(*this);
 	}
 public:
+	template<typename T>
 	GameObject* CreateBullet();
 public:
 	Player();
