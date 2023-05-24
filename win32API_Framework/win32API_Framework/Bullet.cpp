@@ -56,6 +56,8 @@ void Bullet::Render(HDC hdc)
 
 void Bullet::Destroy()
 {
+	this->SetScale(transform.scale * 0.5f);
+	//GetSingle(ObjectPool)->RetunObject(this);
 	GetSingle(ObjectPool)->RetunObject(this);
 }
 

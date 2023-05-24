@@ -8,6 +8,7 @@ private:
 	GameObject* m_pPlayer;
 	list<GameObject*>* EnemyList;
 	list<GameObject*>* BulletList;
+	list<GameObject*>* test;
 public:
 	virtual void Start()override;
 	virtual int Update()override;

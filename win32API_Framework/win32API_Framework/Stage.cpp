@@ -5,7 +5,12 @@
 #include "Prototype.h"
 #include "ObjectFactory.h"
 #include "CollisionManager.h"
-
+#include "ObjectPool.h"
+//#ifdef UNICODE
+//#pragma comment(linker, "/entry:wWinMainCRTStartup /subsystem:console")
+//#else
+//#pragma comment(linker, "/entry:WinMainCRTStartup /subsystem:console")
+//#endif
 Stage::Stage() : m_pPlayer(nullptr), EnemyList(nullptr), BulletList(nullptr)
 {
 
@@ -42,6 +47,7 @@ void Stage::Start()
 		}
 	}
 	EnemyList = GetSingle(ObjectManager)->GetObjectList("Enemy");
+	test = GetSingle(ObjectPool)->GetList("Bullet");
 }
 
 int Stage::Update()
@@ -62,7 +68,7 @@ int Stage::Update()
 		for (list<GameObject*>::iterator iter = BulletList->begin(); iter != BulletList->end(); ++iter)
 		{
 			//(*iter)->Update();
-			if ((*iter)->Update() == 1)
+			if ((*iter)->Update() == 1 && (*iter)->GetScale().x ==30.0f)
 			{
 				(*iter)->Destroy();
 			}
@@ -70,6 +76,13 @@ int Stage::Update()
 	}
 	else
 		BulletList = GetSingle(ObjectManager)->GetObjectList("Bullet");
+	
+	/*if (test != nullptr && !test->empty())
+	{
+		printf("%d\n", test->size());
+	}
+	else
+		test = GetSingle(ObjectPool)->Gettest("Bullet");*/
 	
 	return 0;
 }
@@ -94,6 +107,7 @@ void Stage::Render(HDC hdc)
 	}
 	else
 		BulletList = GetSingle(ObjectManager)->GetObjectList("Bullet");
+
 }
 
 void Stage::Destroy()
