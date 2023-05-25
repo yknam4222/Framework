@@ -9,10 +9,7 @@ public:
 	virtual void Render(HDC hdc)override;
 	virtual void Destroy()override;
 public:
-	virtual GameObject* Clone()override
-	{
-		return new Bullet(*this);
-	}
+	virtual GameObject* Clone()override{ return new Bullet(*this);}
 public:
 	Bullet();
 	Bullet(Transform _transform) : GameObject(_transform) {}

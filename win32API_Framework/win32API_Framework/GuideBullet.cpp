@@ -26,7 +26,8 @@ void GuideBullet::Update(Transform& transform)
 		Vertical / Distance,
 		0.0f);
 
-	transform.position += Direction * Speed;
+	if(Distance !=0)
+		transform.position += Direction * Speed;
 }
 
 void GuideBullet::Render(HDC hdc)

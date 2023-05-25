@@ -42,8 +42,10 @@ int Bullet::Update()
 			if (CollisionManager::CircleCollision(this, (*iter)))
 				return 1;
 	}
-
-	return 0;
+	if (transform.position.x > WIDTH)
+		return 1;
+	else 
+		return 0;
 }
 
 void Bullet::Render(HDC hdc)
@@ -57,5 +59,6 @@ void Bullet::Destroy()
 	this->SetScale(transform.scale * 0.5f);
 	//GetSingle(ObjectPool)->RetunObject(this);
 	GetSingle(ObjectPool)->RetunObject(this);
+
 }
 

@@ -16,7 +16,7 @@ public:
 	}
 public:
 	template<typename T>
-	GameObject* CreateBullet();
+	GameObject* CreateBullet(string _key);
 public:
 	Player();
 	Player(Transform _transform) : GameObject(_transform) {}
