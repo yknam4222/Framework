@@ -6,6 +6,7 @@
 
 #include "NormalBullet.h"
 #include "GuideBullet.h"
+#include "ObjectPool.h"
 
 Player::Player()
 {
@@ -64,29 +65,39 @@ void Player::Destroy()
 {
 }
 
-
 template<typename T>
 GameObject* Player::CreateBullet(string _key)
 {
-	Bridge* pBridge = new T;
-	pBridge->Start();
-	((BulletBridge*)pBridge)->SetTarget(this);
-	
-	GameObject* ProtoObj = GetSingle(Prototype)->GetGameObject("Bullet");
+	GameObject* Obj = GetSingle(ObjectPool)->GetGameObject(_key);
 
-	if (ProtoObj != nullptr)
+	if (Obj == nullptr)
 	{
-		GameObject* Object = ProtoObj->Clone();
-		Object->Start();
-		Object->SetPosition(transform.position);
-		Object->SetKey(_key);
+		Bridge* pBridge = new T;
+		pBridge->Start();
+		((BulletBridge*)pBridge)->SetTarget(this);
 
-		pBridge->SetObject(Object);
-		Object->SetBridge(pBridge);
+		GameObject* ProtoObj = GetSingle(Prototype)->GetGameObject(_key);
 
-		return Object;
+		if (ProtoObj != nullptr)
+		{
+			GameObject* Object = ProtoObj->Clone();
+			Object->Start();
+			Object->SetPosition(transform.position);
+			Object->SetKey(_key);
+
+			pBridge->SetObject(Object);
+			Object->SetBridge(pBridge);
+
+			return Object;
+		}
+		else
+			return nullptr;
 	}
-	else
-		return nullptr;
+
+	Obj->Start();
+	Obj->SetPosition(transform.position);
+	Obj->SetKey(_key);
+
+	return Obj;
 }
 
