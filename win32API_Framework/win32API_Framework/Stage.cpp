@@ -6,6 +6,9 @@
 #include "ObjectFactory.h"
 #include "CollisionManager.h"
 #include "ObjectPool.h"
+#include "Bitmap.h"
+#include "ImageManager.h"
+
 //#ifdef UNICODE
 //#pragma comment(linker, "/entry:wWinMainCRTStartup /subsystem:console")
 //#else
@@ -47,6 +50,19 @@ void Stage::Start()
 		}
 	}
 	EnemyList = GetSingle(ObjectManager)->GetObjectList("Enemy");
+
+	m_mapImageList = GetSingle(ImageManager)->GetImageList();
+
+	/*m_mapImageList->insert(
+		make_pair("BackGround", (new Bitmap)->LoadBmp(L"../Resource/Stage/BackGround.bmp")));
+
+	m_mapImageList->insert(
+		make_pair("Buffer", (new Bitmap)->LoadBmp(L"../Resource/Stage/Buffer.bmp")));*/
+
+	(*m_mapImageList)["BackGround"] = (new Bitmap)->LoadBmp(L"../Resource/Stage/BackGround.bmp");
+	(*m_mapImageList)["Buffer"] = (new Bitmap)->LoadBmp(L"../Resource/Stage/Buffer.bmp");
+
+	GameObject::SetImageList(m_mapImageList);
 }
 
 int Stage::Update()
@@ -92,12 +108,26 @@ int Stage::Update()
 
 void Stage::Render(HDC hdc)
 {
-	//list<GameObject*>* BulletList = ObjectManager::GetInstance()->GetObjectList("Bullet");
+
+	BitBlt((*m_mapImageList)["Buffer"]->GetMemDC(),				//복f사해 넣을 그림판
+		0, 0, WIDTH, HEIGHT,				//복사할 영역 시작점으로부터 끝부분까지
+		(*m_mapImageList)["BackGround"]->GetMemDC(),	//복사할 이미지
+		0, 0,			//스케일 잡기
+		SRCCOPY);	// 소스영역을 대상 영역에 복사
 
 	if (m_pPlayer)
-		m_pPlayer->Render(hdc);
+		m_pPlayer->Render(
+			(*m_mapImageList)["Buffer"]->GetMemDC());
 
-	GetSingle(ObjectManager)->Render(hdc);
+	
+	GetSingle(ObjectManager)->Render((*m_mapImageList)["Buffer"]->GetMemDC());
+
+
+	BitBlt(hdc,				//복사해 넣을 그림판
+		0, 0, WIDTH, HEIGHT,				//복사할 영역 시작점으로부터 끝부분까지
+		(*m_mapImageList)["Buffer"]->GetMemDC(),	//복사할 이미지f
+		0, 0,			//스케일 잡기
+		SRCCOPY);	// 소스영역을 대상 영역에 복사
 
 	/*if (EnemyList != nullptr && !EnemyList->empty())
 	{

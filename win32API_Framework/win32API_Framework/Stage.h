@@ -1,6 +1,7 @@
 #pragma once
 #include "Scene.h"
 
+class Bitmap;
 class GameObject;
 class Stage : public Scene
 {
@@ -8,6 +9,8 @@ private:
 	GameObject* m_pPlayer;
 	list<GameObject*>* EnemyList;
 	list<GameObject*>* BulletList;
+	map<string, Bitmap*>* m_mapImageList;
+
 public:
 	virtual void Start()override;
 	virtual int Update()override;

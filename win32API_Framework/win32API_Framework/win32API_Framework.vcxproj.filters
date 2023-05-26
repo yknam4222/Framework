@@ -85,6 +85,12 @@
     <Filter Include="소스 파일\01. GameObject\Bullet\BulletBridge\GuideBullet">
       <UniqueIdentifier>{ab91d0e7-177a-462d-9c86-daa47122177d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\99. Manager\Bitmap">
+      <UniqueIdentifier>{00ae8d8b-2b50-45e1-b0ea-96a61f3514d2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\99. Manager\Bitmap\ImageManager">
+      <UniqueIdentifier>{afa63017-63ce-465e-ba97-0ff2d4dc8ea0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -171,6 +177,12 @@
     <ClInclude Include="GuideBullet.h">
       <Filter>소스 파일\01. GameObject\Bullet\BulletBridge\GuideBullet</Filter>
     </ClInclude>
+    <ClInclude Include="ImageManager.h">
+      <Filter>소스 파일\99. Manager\Bitmap\ImageManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Bitmap.h">
+      <Filter>소스 파일\99. Manager\Bitmap</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="win32API_Framework.cpp">
@@ -223,6 +235,12 @@
     </ClCompile>
     <ClCompile Include="GuideBullet.cpp">
       <Filter>소스 파일\01. GameObject\Bullet\BulletBridge\GuideBullet</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageManager.cpp">
+      <Filter>소스 파일\99. Manager\Bitmap\ImageManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Bitmap.cpp">
+      <Filter>소스 파일\99. Manager\Bitmap</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -10,10 +10,7 @@ public:
 	virtual void Destroy()override;
 
 public:
-	virtual GameObject* Clone()override
-	{
-		return new Player(*this);
-	}
+	virtual GameObject* Clone()override{return new Player(*this);}
 public:
 	template<typename T>
 	GameObject* CreateBullet(string _key);

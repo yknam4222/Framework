@@ -1,6 +1,7 @@
 #pragma once
 #include "Include.h"
 
+class Bitmap;
 class Bridge;
 class GameObject
 {
@@ -9,6 +10,11 @@ protected:
 	float Speed;
 	Bridge* pBridge;
 	string Key;
+
+	static map<string, Bitmap*>* m_ImageList;
+public:
+	static void SetImageList(map<string, Bitmap*>* _ImageList) { m_ImageList = _ImageList; }
+
 public:
 	virtual GameObject* Start()PURE;
 	virtual int Update()PURE;

@@ -13,3 +13,5 @@ using namespace std;
 #include "Define.h"
 #include "Structs.h"
 #include "Enum.h"
+
+#pragma comment(lib, "msimg32.lib")
