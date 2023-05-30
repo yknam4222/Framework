@@ -15,7 +15,7 @@ void InputManager::CheckKey()
 	inputKey = 0;
 	if (GetAsyncKeyState(VK_UP) & 0x8000)
 		inputKey |= KEYID_UP;
-
+	
 	if (GetAsyncKeyState(VK_DOWN) & 0x8000)
 		inputKey |= KEYID_DOWN;
 

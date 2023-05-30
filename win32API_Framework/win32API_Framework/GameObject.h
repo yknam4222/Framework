@@ -11,6 +11,10 @@ protected:
 	Bridge* pBridge;
 	string Key;
 
+
+	Frame frame;
+	ULONGLONG Time;
+
 	static map<string, Bitmap*>* m_ImageList;
 public:
 	static void SetImageList(map<string, Bitmap*>* _ImageList) { m_ImageList = _ImageList; }
