@@ -13,24 +13,87 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="헤더 파일\Headers">
+      <UniqueIdentifier>{2a72245e-549e-44ab-9aec-34fd1e564374}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\00. MainUpdate">
+      <UniqueIdentifier>{13b7aa62-d0af-472a-81f1-3a03375492bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Stage">
+      <UniqueIdentifier>{c83fc52d-48cb-4503-930c-98442df76384}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Object">
+      <UniqueIdentifier>{99011931-638b-4c4e-865a-5d5df7a95e04}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Object\Tile">
+      <UniqueIdentifier>{cc3de446-4d43-41ef-8a6b-27df25310e42}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Bitmap">
+      <UniqueIdentifier>{f1d41650-5721-40d8-a78f-b526c366047d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Bitmap\ImageManager">
+      <UniqueIdentifier>{131938dd-8de1-4df9-92ea-30c6e2aa0984}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="targetver.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Resource.h">
-      <Filter>헤더 파일</Filter>
+      <Filter>헤더 파일\Headers</Filter>
     </ClInclude>
     <ClInclude Include="Picking.h">
+      <Filter>헤더 파일\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>헤더 파일\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>헤더 파일\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Include.h">
       <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="MainUpdate.h">
+      <Filter>소스 파일\00. MainUpdate</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage.h">
+      <Filter>소스 파일\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="Object.h">
+      <Filter>소스 파일\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Tile.h">
+      <Filter>소스 파일\Object\Tile</Filter>
+    </ClInclude>
+    <ClInclude Include="Struct.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Bitmap.h">
+      <Filter>소스 파일\Bitmap</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageManager.h">
+      <Filter>소스 파일\Bitmap\ImageManager</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Picking.cpp">
       <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="MainUpdate.cpp">
+      <Filter>소스 파일\00. MainUpdate</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage.cpp">
+      <Filter>소스 파일\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Object.cpp">
+      <Filter>소스 파일\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Tile.cpp">
+      <Filter>소스 파일\Object\Tile</Filter>
+    </ClCompile>
+    <ClCompile Include="Bitmap.cpp">
+      <Filter>소스 파일\Bitmap</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageManager.cpp">
+      <Filter>소스 파일\Bitmap\ImageManager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
